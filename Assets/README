@@ -1,0 +1,26 @@
+dan.weil
+208480202
+daneliyahu
+208271767
+=============================
+=
+=============================
+
+Part 4/ Refractions
+Implementation of intersectPlaneCheckered:
+    We begin be checking if we've hit the plane as before and as seen in the TA.
+    Then we need to figure out which material we've hit, based on the hit point coordinates.
+    We know that the plane is axis aligned, meaning its' normal has non-zero in one of it's coordinates,
+    and zero in the other two. This way we can transfer to "UV-space" coordinates to simulate
+    the checkerboard. Now we reduce the problem to a 1x1 square in which the diagonal is black.
+    We can notice that if both 0 < u,v < 0.5, or 0.5 < u,v < 1, subtracting 0.5 from both of them
+    and then multiplying will give a positive/zero result, meaning we now that the material should
+    be m1. In the other cases, for example when 0 < u < 0.5 and 0.5 < v < 1, subtracting 0.5
+    and multiplying will result in a negative number, so the material is m2.
+    Applying this to negative numbers using the sign function, and the fractional value of 
+    the coordinates we get the desired result.
+    
+==================
+In this exercise we only used TA slides.
+================
+
